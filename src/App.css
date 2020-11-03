@@ -8,3 +8,17 @@ body {
     align-items: center;
     justify-content: center;
 }
+
+.logout button {
+    background-color: #4C69BA;
+    border: none;
+    color: #fff;
+    padding: 1rem;
+    width: 12rem;
+    margin-top: 10%;
+}
+
+.dets {
+    display: flex;
+    flex-direction: column;
+}

@@ -36,7 +36,7 @@ export default class Facebook extends Component {
 
     if (this.state.isLoggedIn) {
       fbContent = (
-        <div
+        <div className="dets"
           style={{
             width: "400px",
             margin: "auto",
@@ -44,14 +44,17 @@ export default class Facebook extends Component {
             padding: "20px"
           }}
         >
-          <img src={this.state.picture} alt={this.state.name} />
-          <h2>Welcome {this.state.name}</h2>
+          <div className="details">
+            <img src={this.state.picture} alt={this.state.name} />
+            <h2>Welcome {this.state.name}</h2>
           Email: {this.state.email}
-
-
-          <button onClick={e => this.logout(e)}>
-            LOGOUT
+          </div>
+          <div className="logout">
+            <button onClick={e => this.logout(e)}>
+              LOGOUT
           </button>
+          </div>
+
         </div>
       );
     } else {
