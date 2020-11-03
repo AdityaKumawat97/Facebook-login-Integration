@@ -9,7 +9,6 @@ export default class Facebook extends Component {
     email: "",
     picture: ""
   };
-
   responseFacebook = response => {
     console.log(response);
     if (response) {
@@ -25,7 +24,13 @@ export default class Facebook extends Component {
   };
 
   componentClicked = () => console.log("clicked");
+  logout = (e) => {
+    e.preventDefault()
+    console.log("logoutclicked")
+    window.FB.logout()
+    this.setState({ isLoggedIn: false })
 
+  }
   render() {
     let fbContent;
 
@@ -42,6 +47,11 @@ export default class Facebook extends Component {
           <img src={this.state.picture} alt={this.state.name} />
           <h2>Welcome {this.state.name}</h2>
           Email: {this.state.email}
+
+
+          <button onClick={e => this.logout(e)}>
+            LOGOUT
+          </button>
         </div>
       );
     } else {
