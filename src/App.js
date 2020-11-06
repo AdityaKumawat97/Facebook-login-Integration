@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import FacebookLogin from "react-facebook-login";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './App.css'
 export default class Facebook extends Component {
   state = {
@@ -19,9 +21,19 @@ export default class Facebook extends Component {
         email: response.email,
         picture: response.picture.data.url
       });
+      toast.success('🦄 Successfully Logged In', {
+        position: "top-right",
+        autoClose: 1500,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
     }
 
   };
+
 
   componentClicked = () => console.log("clicked");
   logout = (e) => {
@@ -73,6 +85,17 @@ export default class Facebook extends Component {
       <div className="main">
         <div className="container">{fbContent}
         </div>
+        <ToastContainer
+          position="top-right"
+          autoClose={1500}
+          hideProgressBar
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
       </div>
     );
   }
